@@ -14,7 +14,7 @@ export default function Footer() {
                     <ul className="space-y-3 text-sm text-gray-400">
                         <li><a href="/about" className="hover:text-white">About Us</a></li>
                         <li><a href="/about" className="hover:text-white">Our Mission</a></li>
-                        <li><a href="#" className="hover:text-white">Events</a></li>
+                        <li><a href="/events" className="hover:text-white">Events</a></li>
                         <li><a href="/members" className="hover:text-white">Member Stats</a></li>
                         <li><a href="/contact" className="hover:text-white">Contact</a></li>
                     </ul>

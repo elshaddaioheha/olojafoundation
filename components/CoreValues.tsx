@@ -5,7 +5,7 @@ const values = [
         icon: Heart,
         title: "Sharing",
         desc: "Share feelings and spiritual to the poor, children around the world, helping them to integrate into the community.",
-        link: "#",
+        link: "/events",
         linkText: "FIND CAMPAIGNS"
     },
     {
