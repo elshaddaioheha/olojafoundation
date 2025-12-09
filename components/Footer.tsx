@@ -23,9 +23,9 @@ export default function Footer() {
                 <div>
                     <h5 className="font-bold text-lg mb-6 text-amber-500">Contact</h5>
                     <ul className="space-y-3 text-sm text-gray-400">
-                        <li>123 Charity Lane, Lagos</li>
-                        <li>olojafoundation@gmail.com</li>
-                        <li>+234 800 000 0000</li>
+                        <li>Abuja, Nigeria ; Jos, Nigeria</li>
+                        <li>theolojafoundation@gmail.com</li>
+                        <li>+234 907 617 4344</li>
                     </ul>
                 </div>
 

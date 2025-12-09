@@ -50,8 +50,8 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-gray-900">Email Us</h4>
-                                    <a href="mailto:olojafoundation@gmail.com" className="text-gray-600 hover:text-amber-600 transition-colors">
-                                        olojafoundation@gmail.com
+                                    <a href="mailto:theolojafoundation@gmail.com" className="text-gray-600 hover:text-amber-600 transition-colors">
+                                        theolojafoundation@gmail.com
                                     </a>
                                 </div>
                             </div>
@@ -62,8 +62,8 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-gray-900">Call / WhatsApp</h4>
-                                    <a href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-amber-600 transition-colors">
-                                        +234 800 000 0000
+                                    <a href="https://wa.me/2349076174344" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-amber-600 transition-colors">
+                                        +234 907 617 4344
                                     </a>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
                                 <div>
                                     <h4 className="font-bold text-gray-900">Visit Us</h4>
                                     <p className="text-gray-600">
-                                        123 Charity Lane, Lagos, Nigeria
+                                        Abuja, Nigeria ; Jos, Nigeria
                                     </p>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
                         <div className="pt-8 border-t border-gray-100">
                             <h4 className="font-bold text-gray-900 mb-4">Follow Us</h4>
                             <div className="flex gap-4">
-                                <a href="https://wa.me/2348000000000" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-6 py-2 rounded-full font-bold hover:bg-green-600 transition-colors flex items-center gap-2">
+                                <a href="https://wa.me/2349076174344" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-6 py-2 rounded-full font-bold hover:bg-green-600 transition-colors flex items-center gap-2">
                                     WhatsApp
                                 </a>
                                 <a href="https://twitter.com/olojafoundation" target="_blank" rel="noopener noreferrer" className="bg-black text-white px-6 py-2 rounded-full font-bold hover:bg-gray-800 transition-colors flex items-center gap-2">
