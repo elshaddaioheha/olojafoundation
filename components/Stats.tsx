@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Stats() {
     return (
-        <section className="relative z-20 -mt-20 container mb-20" id="stats">
+        <section className="relative z-20 -mt-20 container mb-20 px-4 md:px-8" id="stats">
             <div className="grid grid-cols-1 lg:grid-cols-2 shadow-2xl overflow-hidden rounded-lg">
 
                 {/* Left: Orange Info Block */}

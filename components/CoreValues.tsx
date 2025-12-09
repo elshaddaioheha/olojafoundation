@@ -29,22 +29,24 @@ const values = [
 
 export default function CoreValues() {
     return (
-        <section className="container py-20">
-            <h3 className="text-amber-600 font-bold uppercase tracking-widest text-sm mb-12">Our Core Values.</h3>
+        <section className="container py-20 px-4 md:px-8">
+            <div className="max-w-6xl mx-auto">
+                <h3 className="text-amber-600 font-bold uppercase tracking-widest text-sm mb-12">Our Core Values.</h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                {values.map((v, i) => (
-                    <div key={i} className="flex flex-col items-start gap-4">
-                        <div className="text-amber-500 mb-2">
-                            <v.icon size={40} strokeWidth={1.5} />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                    {values.map((v, i) => (
+                        <div key={i} className="flex flex-col items-start gap-4">
+                            <div className="text-amber-500 mb-2">
+                                <v.icon size={40} strokeWidth={1.5} />
+                            </div>
+                            <h4 className="font-bold text-xl">{v.title}</h4>
+                            <p className="text-gray-500 text-sm leading-relaxed mb-4">{v.desc}</p>
+                            <a href="#" className="text-xs font-bold uppercase tracking-widest border-b-2 border-gray-200 pb-1 hover:border-amber-500 transition-colors">
+                                {v.link}
+                            </a>
                         </div>
-                        <h4 className="font-bold text-xl">{v.title}</h4>
-                        <p className="text-gray-500 text-sm leading-relaxed mb-4">{v.desc}</p>
-                        <a href="#" className="text-xs font-bold uppercase tracking-widest border-b-2 border-gray-200 pb-1 hover:border-amber-500 transition-colors">
-                            {v.link}
-                        </a>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </section>
     );
