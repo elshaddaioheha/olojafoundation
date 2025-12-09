@@ -12,11 +12,11 @@ export default function Footer() {
                 <div>
                     <h5 className="font-bold text-lg mb-6 text-amber-500">Links</h5>
                     <ul className="space-y-3 text-sm text-gray-400">
-                        <li><a href="#" className="hover:text-white">About Us</a></li>
-                        <li><a href="#" className="hover:text-white">Our Mission</a></li>
+                        <li><a href="/about" className="hover:text-white">About Us</a></li>
+                        <li><a href="/about" className="hover:text-white">Our Mission</a></li>
                         <li><a href="#" className="hover:text-white">Events</a></li>
                         <li><a href="/members" className="hover:text-white">Member Stats</a></li>
-                        <li><a href="#" className="hover:text-white">Contact</a></li>
+                        <li><a href="/contact" className="hover:text-white">Contact</a></li>
                     </ul>
                 </div>
 
@@ -24,7 +24,7 @@ export default function Footer() {
                     <h5 className="font-bold text-lg mb-6 text-amber-500">Contact</h5>
                     <ul className="space-y-3 text-sm text-gray-400">
                         <li>123 Charity Lane, Lagos</li>
-                        <li>contact@oloja.org</li>
+                        <li>olojafoundation@gmail.com</li>
                         <li>+234 800 000 0000</li>
                     </ul>
                 </div>

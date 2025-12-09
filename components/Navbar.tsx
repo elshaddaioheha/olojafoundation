@@ -37,7 +37,7 @@ export default function Navbar() {
                 <div className="hidden md:flex items-center gap-8">
                     <Link href="/" className="hover:text-amber-500 transition-colors font-medium">Home</Link>
                     <Link href="/about" className="hover:text-amber-500 transition-colors font-medium">About</Link>
-                    <Link href="#stats" className="hover:text-amber-500 transition-colors font-medium">Impact</Link>
+                    <Link href="/contact" className="hover:text-amber-500 transition-colors font-medium">Contact</Link>
                     <Link href="/donate" className="btn btn-primary px-6 py-2 rounded-full">DONATE NOW</Link>
                 </div>
 

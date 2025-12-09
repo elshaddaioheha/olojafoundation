@@ -28,7 +28,7 @@ export default function DonatePage() {
             name,
             phone,
         },
-        publicKey: "pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", // REPLACE THIS WITH YOUR PUBLIC KEY
+        publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
         text: "Donate Now",
         onSuccess: () => alert("Thanks for your donation!"),
         onClose: () => alert("Wait! Don't leave :("),
@@ -110,6 +110,6 @@ export default function DonatePage() {
                 </div>
             </div>
             <Footer />
-        </main>
+        </main >
     );
 }

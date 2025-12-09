@@ -19,14 +19,14 @@ const values = [
         icon: Building2,
         title: "Community",
         desc: "We help local nonprofits access the funding, tools, training, and support they need to become more.",
-        link: "#",
+        link: "/contact",
         linkText: "JOIN US"
     },
     {
         icon: Globe,
         title: "Responsibilities",
         desc: "Are you concerned about the health of our planet, and ready to do what you can to save it?",
-        link: "#",
+        link: "/about",
         linkText: "OUR PROMISE"
     }
 ];
