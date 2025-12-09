@@ -23,10 +23,10 @@ export default function Navbar() {
                     {/* Using the logo provided. Adjust sizes as needed. */}
                     <div className="relative h-12 w-40">
                         <Image
-                            src={scrolled ? "/images/logo_1.jpg" : "/images/logo_2.jpg"}
+                            src={scrolled ? "/images/logo_black.png" : "/images/logo_white.png"}
                             alt="The Oloja Foundation"
                             fill
-                            className="object-contain object-left filter mix-blend-multiply" // Adjust blending if needed or remove bg
+                            className="object-contain object-left"
                         />
                     </div>
                     {/* Fallback text if logo is messy */}
