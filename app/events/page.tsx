@@ -1,30 +1,177 @@
 "use client";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Calendar } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Calendar, Phone, Mail, Instagram, CheckCircle2 } from "lucide-react";
 
 export default function EventsPage() {
+    // Countdown Timer Logic
+    const [timeLeft, setTimeLeft] = useState({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+    });
+
+    useEffect(() => {
+        // Set target date to 10 days, 23 hours, 1 minute from now
+        // Note: For a real app, this should probably be a fixed date string to be consistent for all users
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 10);
+        targetDate.setHours(targetDate.getHours() + 23);
+        targetDate.setMinutes(targetDate.getMinutes() + 1);
+
+        const interval = setInterval(() => {
+            const now = new Date();
+            const difference = targetDate.getTime() - now.getTime();
+
+            if (difference > 0) {
+                setTimeLeft({
+                    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                    minutes: Math.floor((difference / 1000 / 60) % 60),
+                    seconds: Math.floor((difference / 1000) % 60)
+                });
+            } else {
+                clearInterval(interval);
+            }
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    // Progress Calculation
+    const targetAmount = 620000;
+    const raisedAmount = 170000;
+    const percentage = Math.min((raisedAmount / targetAmount) * 100, 100);
+
     return (
-        <main className="min-h-screen flex flex-col">
+        <main className="min-h-screen bg-gray-50">
             <Navbar />
 
-            <section className="bg-gray-900 text-white pt-40 pb-20 px-4 md:px-8 flex-grow">
+            {/* Header */}
+            <section className="bg-gray-900 text-white pt-32 pb-16 px-4 md:px-8">
                 <div className="container mx-auto max-w-4xl text-center">
-                    <div className="w-24 h-24 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-8">
-                        <Calendar className="text-amber-500 w-12 h-12" />
-                    </div>
-
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6">Upcoming Events</h1>
-                    <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-                        Join us in our upcoming outreaches and community programs.
+                    <span className="inline-block bg-amber-500/20 text-amber-500 font-bold uppercase tracking-widest text-xs px-4 py-2 rounded-full mb-6">
+                        Upcoming Campaign
+                    </span>
+                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6">THE IMPACT Reach</h1>
+                    <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                        Support THE OLOJA FOUNDATION in their upcoming campaign to bring hope and help to those in need.
                     </p>
+                </div>
+            </section>
 
-                    <div className="bg-white/5 border border-white/10 p-8 rounded-2xl backdrop-blur-sm">
-                        <h2 className="text-2xl font-bold mb-4">No events scheduled at the moment</h2>
-                        <p className="text-gray-400">
-                            Please check back later or follow our social media channels for updates on our latest campaigns and activities.
-                        </p>
+            <section className="py-12 px-4 md:px-8 -mt-8">
+                <div className="container mx-auto max-w-5xl">
+
+                    {/* Event Card */}
+                    <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
+                        {/* Countdown Section */}
+                        <div className="bg-amber-500 p-8 text-center text-black">
+                            <h3 className="font-bold uppercase tracking-widest text-sm mb-6 opacity-80">Countdown to Event</h3>
+                            <div className="grid grid-cols-4 gap-4 max-w-lg mx-auto">
+                                <div>
+                                    <div className="text-4xl md:text-5xl font-bold">{timeLeft.days}</div>
+                                    <div className="text-xs font-bold uppercase mt-1 opacity-60">Days</div>
+                                </div>
+                                <div>
+                                    <div className="text-4xl md:text-5xl font-bold">{timeLeft.hours}</div>
+                                    <div className="text-xs font-bold uppercase mt-1 opacity-60">Hours</div>
+                                </div>
+                                <div>
+                                    <div className="text-4xl md:text-5xl font-bold">{timeLeft.minutes}</div>
+                                    <div className="text-xs font-bold uppercase mt-1 opacity-60">Mins</div>
+                                </div>
+                                <div>
+                                    <div className="text-4xl md:text-5xl font-bold">{timeLeft.seconds}</div>
+                                    <div className="text-xs font-bold uppercase mt-1 opacity-60">Secs</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="grid md:grid-cols-2">
+                            {/* Image Side */}
+                            <div className="relative h-[400px] md:h-auto">
+                                <Image
+                                    src="/images/impact_reach.jpg"
+                                    alt="Children Impact"
+                                    fill
+                                    className="object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8 md:p-12">
+                                    <div className="text-white">
+                                        <div className="font-bold text-xl mb-2">Fundraising Goal</div>
+                                        <div className="flex items-end gap-3 mb-4">
+                                            <span className="text-4xl font-bold text-amber-400">₦{raisedAmount.toLocaleString()}</span>
+                                            <span className="text-white/70 mb-2">/ ₦{targetAmount.toLocaleString()}</span>
+                                        </div>
+
+                                        {/* Progress Bar */}
+                                        <div className="w-full bg-white/20 h-4 rounded-full overflow-hidden backdrop-blur-sm">
+                                            <div
+                                                className="bg-amber-500 h-full rounded-full transition-all duration-1000 ease-out"
+                                                style={{ width: `${percentage}%` }}
+                                            ></div>
+                                        </div>
+                                        <div className="text-right text-xs font-bold mt-2 text-amber-400">{percentage.toFixed(1)}% Reached</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Content Side */}
+                            <div className="p-8 md:p-12 flex flex-col justify-center">
+                                <div className="mb-8">
+                                    <h2 className="text-2xl font-bold mb-4 text-gray-900">About the Campaign</h2>
+                                    <p className="text-gray-600 leading-relaxed mb-6">
+                                        Help us achieve our target amount of <span className="font-bold text-gray-900">₦620,000</span>. Your contributions will directly support our planned activities to bring relief and joy to the less privileged.
+                                    </p>
+
+                                    <h4 className="font-bold text-gray-900 mb-3 uppercase text-sm tracking-wide">Planned Activities:</h4>
+                                    <ul className="space-y-3">
+                                        <li className="flex items-center gap-3 text-gray-600 bg-gray-50 p-3 rounded-lg">
+                                            <CheckCircle2 className="text-amber-500 flex-shrink-0" size={20} /> Feed the Streets
+                                        </li>
+                                        <li className="flex items-center gap-3 text-gray-600 bg-gray-50 p-3 rounded-lg">
+                                            <CheckCircle2 className="text-amber-500 flex-shrink-0" size={20} /> Orphanage Visit
+                                        </li>
+                                        <li className="flex items-center gap-3 text-gray-600 bg-gray-50 p-3 rounded-lg">
+                                            <CheckCircle2 className="text-amber-500 flex-shrink-0" size={20} /> Hospital Visit
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div className="space-y-6">
+                                    <div className="bg-amber-50 border border-amber-100 p-6 rounded-xl">
+                                        <h4 className="font-bold text-amber-800 mb-2 text-sm uppercase">How to Donate</h4>
+                                        <p className="text-sm text-amber-900/70 mb-4">Please use the Donate button below or contact us for account details.</p>
+                                        <Link href="/donate" className="btn w-full bg-amber-500 hover:bg-amber-600 text-black font-bold uppercase tracking-widest py-4 rounded-xl shadow-lg transition-transform active:scale-95 text-center block">
+                                            Donate Now
+                                        </Link>
+                                    </div>
+
+                                    <div className="border-t border-gray-100 pt-6">
+                                        <h4 className="font-bold text-gray-900 mb-4 text-sm uppercase">Connect with Us</h4>
+                                        <div className="space-y-3 text-sm text-gray-500">
+                                            <div className="flex items-center gap-3">
+                                                <Phone className="text-amber-500" size={16} /> 09076174344
+                                            </div>
+                                            <div className="flex items-center gap-3">
+                                                <Mail className="text-amber-500" size={16} /> theolojafoundation@gmail.com
+                                            </div>
+                                            <div className="flex items-center gap-3">
+                                                <Instagram className="text-amber-500" size={16} /> @theolojafoundation
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </section>
 
