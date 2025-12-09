@@ -28,10 +28,10 @@ export default function Stats() {
                     <div className="flex flex-col md:flex-row gap-8">
                         <div className="flex items-center gap-4">
                             <div className="w-16 h-16 rounded-full border-2 border-white/30 flex items-center justify-center font-bold text-xl">
-                                92%
+                                100%
                             </div>
                             <div className="text-xs font-medium w-32 opacity-80">
-                                funds go towards program and support services
+                                of funds go towards program and support services
                             </div>
                         </div>
                         <div className="flex items-center gap-4">

@@ -21,7 +21,7 @@ export default function Navbar() {
             <div className="container flex items-center justify-between px-4 md:px-8">
                 <Link href="/" className="flex items-center gap-2">
                     {/* Using the logo provided. Adjust sizes as needed. */}
-                    <div className="relative h-20 w-60">
+                    <div className={`relative ${scrolled ? "h-20 w-60" : "h-24 w-64"}`}>
                         <Image
                             src={scrolled ? "/images/logo_black.png" : "/images/logo_white.png"}
                             alt="The Oloja Foundation"
