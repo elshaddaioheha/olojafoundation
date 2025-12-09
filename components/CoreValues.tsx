@@ -5,25 +5,29 @@ const values = [
         icon: Heart,
         title: "Sharing",
         desc: "Share feelings and spiritual to the poor, children around the world, helping them to integrate into the community.",
-        link: "FIND CAMPAIGNS"
+        link: "#",
+        linkText: "FIND CAMPAIGNS"
     },
     {
         icon: HandCoins,
         title: "Donation",
         desc: "A gift made by an individual or an organization to a nonprofit organization, charity or private foundation.",
-        link: "MAKE A DONATION"
+        link: "/donate",
+        linkText: "MAKE A DONATION"
     },
     {
         icon: Building2,
         title: "Community",
         desc: "We help local nonprofits access the funding, tools, training, and support they need to become more.",
-        link: "JOIN US"
+        link: "#",
+        linkText: "JOIN US"
     },
     {
         icon: Globe,
         title: "Responsibilities",
         desc: "Are you concerned about the health of our planet, and ready to do what you can to save it?",
-        link: "OUR PROMISE"
+        link: "#",
+        linkText: "OUR PROMISE"
     }
 ];
 
@@ -41,8 +45,8 @@ export default function CoreValues() {
                             </div>
                             <h4 className="font-bold text-xl">{v.title}</h4>
                             <p className="text-gray-500 text-sm leading-relaxed mb-4">{v.desc}</p>
-                            <a href="#" className="text-xs font-bold uppercase tracking-widest border-b-2 border-gray-200 pb-1 hover:border-amber-500 transition-colors">
-                                {v.link}
+                            <a href={v.link} className="text-xs font-bold uppercase tracking-widest border-b-2 border-gray-200 pb-1 hover:border-amber-500 transition-colors">
+                                {v.linkText}
                             </a>
                         </div>
                     ))}
