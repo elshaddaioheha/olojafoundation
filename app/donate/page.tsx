@@ -16,10 +16,20 @@ export default function DonatePage() {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [mounted, setMounted] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
 
     useEffect(() => {
         setMounted(true);
     }, []);
+
+    const resetForm = () => {
+        setAmount(5000);
+        setCustomAmount("");
+        setEmail("");
+        setName("");
+        setPhone("");
+        setShowSuccess(false);
+    };
 
     const componentProps = {
         email,
@@ -30,13 +40,37 @@ export default function DonatePage() {
         },
         publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
         text: "Donate Now",
-        onSuccess: () => alert("Thanks for your donation!"),
+        onSuccess: () => setShowSuccess(true),
         onClose: () => alert("Wait! Don't leave :("),
     };
 
     return (
-        <main className="min-h-screen bg-gray-50">
+        <main className="min-h-screen bg-gray-50 relative">
             <Navbar />
+
+            {/* Success Splash Screen */}
+            {showSuccess && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+                    <div className="bg-white rounded-2xl p-8 md:p-12 max-w-lg w-full text-center shadow-2xl animate-in fade-in zoom-in duration-300">
+                        <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h2>
+                        <p className="text-lg text-gray-600 mb-8">
+                            Your donation has been received. Thank you for making a difference in the lives of many.
+                        </p>
+                        <button
+                            onClick={resetForm}
+                            className="bg-amber-500 text-white px-8 py-3 rounded-full font-bold hover:bg-amber-600 transition-colors w-full uppercase tracking-widest"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            )}
+
             <div className="pt-32 pb-20 container">
                 <div className="max-w-2xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-xl">
                     <div className="text-center mb-10">
