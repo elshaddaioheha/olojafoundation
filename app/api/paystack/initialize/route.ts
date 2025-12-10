@@ -5,13 +5,19 @@ export async function POST(req: Request) {
         const body = await req.json();
         const { email, amount, name, phone } = body;
 
+        const secretKey = process.env.PAYSTACK_SECRET_KEY;
+        if (!secretKey) {
+            console.error("PAYSTACK_SECRET_KEY is missing in environment variables.");
+            return NextResponse.json({ error: 'Server configuration error: Missing Payment Key' }, { status: 500 });
+        }
+
+        const origin = req.headers.get('origin');
+        const callback_url = origin ? `${origin}/donate` : 'http://localhost:3000/donate';
+
         const params = {
             email,
-            amount: amount, // already in kobo from frontend? or convert here? Let's assume frontend sends kobo or we convert. Standard is frontend sends base unit, backend handles logic, but existing code had logic. I'll stick to receiving kobo for now or handle it.
-            // Actually, cleaner if frontend sends NGN and backend converts, but let's keep it simple.
-            // Existing code: `amount: (customAmount ? parseInt(customAmount) : amount) * 100` -> sends kobo.
-            // I will accept kobo for consistency, or NGN. Let's accept kobo.
-            callback_url: `${req.headers.get('origin')}/donate`, // Dynamic callback URL
+            amount: amount,
+            callback_url,
             metadata: {
                 name,
                 phone,
@@ -30,10 +36,12 @@ export async function POST(req: Request) {
             }
         };
 
+        console.log("Initializing Paystack payment...", { email, amount, callback_url });
+
         const response = await fetch('https://api.paystack.co/transaction/initialize', {
             method: 'POST',
             headers: {
-                Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
+                Authorization: `Bearer ${secretKey}`,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(params),
@@ -42,6 +50,7 @@ export async function POST(req: Request) {
         const data = await response.json();
 
         if (!response.ok) {
+            console.error("Paystack API Error:", data);
             return NextResponse.json({ error: data.message || 'Payment initialization failed' }, { status: response.status });
         }
 
