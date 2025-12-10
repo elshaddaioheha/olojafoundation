@@ -1,26 +1,51 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import dynamic from "next/dynamic";
+import { useRouter, useSearchParams } from "next/navigation";
 
-const PaystackButton = dynamic<any>(
-    () => import("react-paystack").then((mod) => mod.PaystackButton as any),
-    { ssr: false }
-);
-
-export default function DonatePage() {
+function DonateContent() {
     const [amount, setAmount] = useState(5000);
     const [customAmount, setCustomAmount] = useState("");
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
-    const [mounted, setMounted] = useState(false);
+    const [loading, setLoading] = useState(false);
     const [showSuccess, setShowSuccess] = useState(false);
+    const [checkingPayment, setCheckingPayment] = useState(false);
+
+    // Hooks
+    const router = useRouter();
+    const searchParams = useSearchParams();
 
     useEffect(() => {
-        setMounted(true);
-    }, []);
+        // Check for transaction reference from Paystack redirect
+        const reference = searchParams.get('reference');
+        if (reference) {
+            verifyTransaction(reference);
+        }
+    }, [searchParams]);
+
+    const verifyTransaction = async (reference: string) => {
+        setCheckingPayment(true);
+        try {
+            const res = await fetch(`/api/paystack/verify?reference=${reference}`);
+            const data = await res.json();
+
+            if (data.status) {
+                setShowSuccess(true);
+                // Clean URL without refresh
+                router.replace('/donate', { scroll: false });
+            } else {
+                alert("Payment verification failed. Please contact support if you were debited.");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("Error verifying payment.");
+        } finally {
+            setCheckingPayment(false);
+        }
+    };
 
     const resetForm = () => {
         setAmount(5000);
@@ -31,22 +56,56 @@ export default function DonatePage() {
         setShowSuccess(false);
     };
 
-    const componentProps = {
-        email,
-        amount: (customAmount ? parseInt(customAmount) : amount) * 100, // Paystack is in kobo
-        metadata: {
-            name,
-            phone,
-        },
-        publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-        text: "Donate Now",
-        onSuccess: () => setShowSuccess(true),
-        onClose: () => alert("Wait! Don't leave :("),
+    const handlePayment = async () => {
+        if (!email || !name || !phone) {
+            alert("Please fill in all fields");
+            return;
+        }
+
+        setLoading(true);
+        const finalAmount = (customAmount ? parseInt(customAmount) : amount) * 100; // Convert to kobo
+
+        try {
+            const res = await fetch('/api/paystack/initialize', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email,
+                    amount: finalAmount,
+                    name,
+                    phone
+                })
+            });
+
+            const data = await res.json();
+
+            if (data.status && data.data?.authorization_url) {
+                window.location.href = data.data.authorization_url;
+            } else {
+                alert(data.message || "Failed to initialize payment");
+                setLoading(false);
+            }
+        } catch (error) {
+            console.error("Payment error:", error);
+            alert("Something went wrong. Please try again.");
+            setLoading(false);
+        }
     };
+
+    if (checkingPayment) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-50">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mx-auto mb-4"></div>
+                    <p className="text-gray-600">Verifying your donation...</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <main className="min-h-screen bg-gray-50 relative">
-            <Navbar />
+            <Navbar forceOpaque={true} />
 
             {/* Success Splash Screen */}
             {showSuccess && (
@@ -134,8 +193,21 @@ export default function DonatePage() {
                     </div>
 
                     <div className="mt-8">
-                        {/* We prefer using client-only rendering for Paystack to avoid hydration issues */}
-                        {mounted && <PaystackButton {...componentProps} className="w-full py-4 bg-amber-500 hover:bg-amber-600 text-black font-bold uppercase tracking-widest rounded-lg shadow-lg transform active:scale-95 transition-all" />}
+                        <button
+                            onClick={handlePayment}
+                            disabled={loading}
+                            className="w-full py-4 bg-amber-500 hover:bg-amber-600 text-black font-bold uppercase tracking-widest rounded-lg shadow-lg transform active:scale-95 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                        >
+                            {loading ? (
+                                <>
+                                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                    Processing...
+                                </>
+                            ) : "Donate Now"}
+                        </button>
                     </div>
 
                     <p className="text-xs text-center text-gray-400 mt-6">
@@ -145,5 +217,13 @@ export default function DonatePage() {
             </div>
             <Footer />
         </main >
+    );
+}
+
+export default function DonatePage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-500"></div></div>}>
+            <DonateContent />
+        </Suspense>
     );
 }

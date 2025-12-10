@@ -6,7 +6,21 @@ const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "The Oloja Foundation - A Home for Everyone",
-  description: "A charitable organization dedicated to providing a home for everyone and empowering communities.",
+  description: "The Oloja Foundation is a non-governmental organization dedicated to empowering communities, providing education, and supporting the less privileged globally.",
+  keywords: ["NGO", "Charity", "Oloja Foundation", "Donation", "Community Support", "Education", "Poverty Alleviation", "Nigeria"],
+  openGraph: {
+    title: "The Oloja Foundation - A Home for Everyone",
+    description: "Empowering communities and providing a home for everyone through education, resources, and support.",
+    url: "https://theolojafoundation.org",
+    siteName: "The Oloja Foundation",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Oloja Foundation",
+    description: "Building specific support systems for the less privileged.",
+  },
 };
 
 export default function RootLayout({

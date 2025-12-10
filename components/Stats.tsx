@@ -18,7 +18,7 @@ export default function Stats() {
                         <div>
                             <strong className="block mb-1 text-white">Our Mission</strong>
                             <ul className="list-disc pl-4 space-y-1 opacity-90">
-                                <li>Subject to meet needs through food, education, and resources.</li>
+                                <li>Dedicated to meeting needs through food, education, and resources.</li>
                                 <li>To empower people through skills and opportunities.</li>
                                 <li>To run consistent outreaches that improve daily living.</li>
                             </ul>
@@ -46,15 +46,16 @@ export default function Stats() {
                 </div>
 
                 {/* Right: Image/Quote Block */}
-                <div className="relative bg-gray-100 min-h-[500px]">
+                <div className="relative bg-gray-900 min-h-[500px]">
                     <div className="absolute inset-0">
                         <Image
                             src="/images/founder.jpg"
                             alt="Oloja Fatima"
                             fill
-                            className="object-cover object-top"
+                            className="object-cover object-top opacity-60"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
                     </div>
 
                     {/* Bio Overlay */}

@@ -16,12 +16,8 @@ export default function EventsPage() {
     });
 
     useEffect(() => {
-        // Set target date to 10 days, 23 hours, 1 minute from now
-        // Note: For a real app, this should probably be a fixed date string to be consistent for all users
-        const targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 10);
-        targetDate.setHours(targetDate.getHours() + 23);
-        targetDate.setMinutes(targetDate.getMinutes() + 1);
+        // Set target date to December 24, 2025 (Christmas Eve Outreach)
+        const targetDate = new Date("2025-12-24T09:00:00");
 
         const interval = setInterval(() => {
             const now = new Date();
@@ -100,6 +96,7 @@ export default function EventsPage() {
                                     alt="Children Impact"
                                     fill
                                     className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8 md:p-12">
                                     <div className="text-white">

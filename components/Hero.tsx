@@ -12,6 +12,7 @@ export default function Hero() {
                     fill
                     className="object-cover"
                     priority
+                    sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-black/40"></div> {/* Overlay */}
             </div>
@@ -22,7 +23,7 @@ export default function Hero() {
                     We're a Worldwide NGO (Non-Governmental Organization)
                 </span>
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-                    change everything
+                    Change Everything
                 </h1>
                 <p className="max-w-2xl text-lg md:text-xl text-gray-200 mb-10">
                     You have the opportunity to impact the lives of individuals and families devastated by poverty.
