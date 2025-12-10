@@ -16,8 +16,8 @@ export default function EventsPage() {
     });
 
     useEffect(() => {
-        // Set target date to December 24, 2025 (Christmas Eve Outreach)
-        const targetDate = new Date("2025-12-24T09:00:00");
+        // Set target date to December 20, 2025 at 9:00 AM
+        const targetDate = new Date("2025-12-20T09:00:00");
 
         const interval = setInterval(() => {
             const now = new Date();
