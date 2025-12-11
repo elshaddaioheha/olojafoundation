@@ -20,7 +20,7 @@ export default function Hero() {
             {/* Content */}
             <div className="container relative z-10 text-center flex flex-col items-center">
                 <span className="text-amber-400 font-bold tracking-widest text-sm md:text-base mb-4 uppercase">
-                    We're a Worldwide NGO (Non-Governmental Organization)
+                    We're a National NGO (Non-Governmental Organization)
                 </span>
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
                     Change Everything
@@ -36,6 +36,6 @@ export default function Hero() {
                     Get Involved
                 </Link>
             </div>
-        </section>
+        </section >
     );
 }

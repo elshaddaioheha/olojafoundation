@@ -77,6 +77,9 @@ export default function ContactPage() {
                                 <a href="https://instagram.com/olojafoundation" target="_blank" rel="noopener noreferrer" className="bg-pink-600 text-white px-6 py-2 rounded-full font-bold hover:bg-pink-700 transition-colors flex items-center gap-2">
                                     Instagram
                                 </a>
+                                <a href="https://chat.whatsapp.com/HdHp5Bvonic29juOtR6mDQ" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-6 py-2 rounded-full font-bold hover:bg-green-600 transition-colors flex items-center gap-2">
+                                    WhatsApp
+                                </a>
                             </div>
                         </div>
                     </div>

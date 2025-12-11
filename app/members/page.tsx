@@ -35,10 +35,17 @@ const AnimatedNumber = ({ value, prefix = "" }: { value: number, prefix?: string
     return <span>{prefix}{count.toLocaleString()}</span>;
 };
 
+// Donation Interface
+interface Donation {
+    email: string;
+    amount: number;
+    date: string;
+}
+
 export default function MembersStats() {
     const [stats, setStats] = useState({
         totalDonations: 180000,
-        recentDonations: [] as any[]
+        recentDonations: [] as Donation[]
     });
 
     useEffect(() => {
