@@ -37,7 +37,7 @@ const AnimatedNumber = ({ value, prefix = "" }: { value: number, prefix?: string
 
 export default function MembersStats() {
     const [stats, setStats] = useState({
-        totalDonations: 170000,
+        totalDonations: 180000,
         recentDonations: [] as any[]
     });
 

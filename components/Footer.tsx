@@ -5,7 +5,7 @@ export default function Footer() {
                 <div>
                     <h4 className="font-bold text-2xl mb-6">The Oloja Foundation</h4>
                     <p className="text-gray-400 text-sm leading-relaxed">
-                        A home for everyone. We participate in providing homes and empowering communities globally.
+                        A home for everyone. We participate in providing homes and empowering communities nationally.
                     </p>
                 </div>
 
@@ -25,7 +25,7 @@ export default function Footer() {
                     <ul className="space-y-3 text-sm text-gray-400">
                         <li>Abuja, Nigeria ; Jos, Nigeria</li>
                         <li>theolojafoundation@gmail.com</li>
-                        <li>+234 907 617 4344</li>
+
                     </ul>
                 </div>
 
@@ -40,6 +40,6 @@ export default function Footer() {
             <div className="container mt-20 pt-8 border-t border-gray-800 text-center text-gray-600 text-xs px-4 md:px-8">
                 &copy; {new Date().getFullYear()} The Oloja Foundation. All rights reserved.
             </div>
-        </footer>
+        </footer >
     );
 }

@@ -26,7 +26,7 @@ export default function Hero() {
                     Change Everything
                 </h1>
                 <p className="max-w-2xl text-lg md:text-xl text-gray-200 mb-10">
-                    You have the opportunity to impact the lives of individuals and families devastated by poverty.
+                    You have the opportunity to impact the lives of individuals and families in need.
                 </p>
 
                 <Link

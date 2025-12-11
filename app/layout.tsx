@@ -7,7 +7,7 @@ const outfit = Outfit({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "The Oloja Foundation - A Home for Everyone",
-  description: "The Oloja Foundation is a non-governmental organization dedicated to empowering communities, providing education, and supporting the less privileged globally.",
+  description: "The Oloja Foundation is a non-governmental organization dedicated to empowering communities, providing education, and supporting the less privileged nationally.",
   keywords: ["NGO", "Charity", "Oloja Foundation", "Donation", "Community Support", "Education", "Poverty Alleviation", "Nigeria"],
   openGraph: {
     title: "The Oloja Foundation - A Home for Everyone",

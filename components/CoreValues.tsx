@@ -4,7 +4,7 @@ const values = [
     {
         icon: Heart,
         title: "Sharing",
-        desc: "Share feelings and spiritual support to the poor, children around the world, helping them to integrate into the community.",
+        desc: "Share kindness and Love. Be it through donations , or simply spreading the word.",
         link: "/events",
         linkText: "FIND CAMPAIGNS"
     },
@@ -18,16 +18,16 @@ const values = [
     {
         icon: Building2,
         title: "Community",
-        desc: "We help local nonprofits access the funding, tools, training, and support they need to become more.",
+        desc: "We help individuals with basic needs and empowerment opportunities.",
         link: "/contact",
         linkText: "JOIN US"
     },
     {
         icon: Globe,
         title: "Responsibilities",
-        desc: "Are you concerned about the health of our planet, and ready to do what you can to save it?",
-        link: "/about",
-        linkText: "OUR PROMISE"
+        desc: "Are you concerned about putting smiles on people's faces? Join us.",
+        link: "https://chat.whatsapp.com/HdHp5Bvonic29juOtR6mDQ",
+        linkText: "JOIN US"
     }
 ];
 

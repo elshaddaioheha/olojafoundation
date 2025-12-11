@@ -56,17 +56,7 @@ export default function ContactPage() {
                                 </div>
                             </div>
 
-                            <div className="flex items-start gap-4">
-                                <div className="bg-amber-100 p-3 rounded-full text-amber-600">
-                                    <Phone size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900">Call / WhatsApp</h4>
-                                    <a href="https://wa.me/2349076174344" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-amber-600 transition-colors">
-                                        +234 907 617 4344
-                                    </a>
-                                </div>
-                            </div>
+
 
                             <div className="flex items-start gap-4">
                                 <div className="bg-amber-100 p-3 rounded-full text-amber-600">
@@ -84,11 +74,8 @@ export default function ContactPage() {
                         <div className="pt-8 border-t border-gray-100">
                             <h4 className="font-bold text-gray-900 mb-4">Follow Us</h4>
                             <div className="flex gap-4">
-                                <a href="https://wa.me/2349076174344" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-6 py-2 rounded-full font-bold hover:bg-green-600 transition-colors flex items-center gap-2">
-                                    WhatsApp
-                                </a>
-                                <a href="https://twitter.com/olojafoundation" target="_blank" rel="noopener noreferrer" className="bg-black text-white px-6 py-2 rounded-full font-bold hover:bg-gray-800 transition-colors flex items-center gap-2">
-                                    X (Twitter)
+                                <a href="https://instagram.com/olojafoundation" target="_blank" rel="noopener noreferrer" className="bg-pink-600 text-white px-6 py-2 rounded-full font-bold hover:bg-pink-700 transition-colors flex items-center gap-2">
+                                    Instagram
                                 </a>
                             </div>
                         </div>
