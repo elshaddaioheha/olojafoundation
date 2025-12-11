@@ -1,4 +1,7 @@
+"use client";
+
 import { Heart, HandCoins, Building2, Globe } from "lucide-react";
+import { motion } from "framer-motion";
 
 const values = [
     {
@@ -31,15 +34,48 @@ const values = [
     }
 ];
 
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+};
+
 export default function CoreValues() {
     return (
         <section className="container py-20 px-4 md:px-8">
             <div className="max-w-6xl mx-auto">
-                <h3 className="text-amber-600 font-bold uppercase tracking-widest text-sm mb-12">Our Core Values.</h3>
+                <motion.h3
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true }}
+                    className="text-amber-600 font-bold uppercase tracking-widest text-sm mb-12"
+                >
+                    Our Core Values.
+                </motion.h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
+                >
                     {values.map((v, i) => (
-                        <div key={i} className="flex flex-col items-start gap-4">
+                        <motion.div
+                            key={i}
+                            variants={itemVariants}
+                            className="flex flex-col items-start gap-4"
+                        >
                             <div className="text-amber-500 mb-2">
                                 <v.icon size={40} strokeWidth={1.5} />
                             </div>
@@ -48,9 +84,9 @@ export default function CoreValues() {
                             <a href={v.link} className="text-xs font-bold uppercase tracking-widest border-b-2 border-gray-200 pb-1 hover:border-amber-500 transition-colors">
                                 {v.linkText}
                             </a>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

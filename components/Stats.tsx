@@ -1,9 +1,18 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Stats() {
     return (
         <section className="relative z-20 -mt-20 container mb-20 px-4 md:px-8" id="stats">
-            <div className="grid grid-cols-1 lg:grid-cols-2 shadow-2xl overflow-hidden rounded-lg">
+            <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, margin: "-100px" }}
+                className="grid grid-cols-1 lg:grid-cols-2 shadow-2xl overflow-hidden rounded-lg"
+            >
 
                 {/* Left: Orange Info Block */}
                 <div className="bg-[#EA580C] text-white p-12 md:p-16 flex flex-col justify-center">
@@ -70,7 +79,7 @@ export default function Stats() {
                     </div>
                 </div>
 
-            </div>
+            </motion.div>
         </section>
     );
 }

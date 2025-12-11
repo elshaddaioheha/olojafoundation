@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar({ forceOpaque = false }: { forceOpaque?: boolean }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -36,8 +37,6 @@ export default function Navbar({ forceOpaque = false }: { forceOpaque?: boolean 
                             priority
                         />
                     </div>
-                    {/* Fallback text if logo is messy */}
-                    {/* <span className="font-bold text-2xl tracking-tight">The Oloja Foundation</span> */}
                 </Link>
 
                 {/* Desktop Menu */}
@@ -57,16 +56,26 @@ export default function Navbar({ forceOpaque = false }: { forceOpaque?: boolean 
             </div>
 
             {/* Mobile Menu */}
-            {isOpen && (
-                <div className="md:hidden bg-white text-black absolute top-full left-0 right-0 p-4 shadow-lg flex flex-col gap-4">
-                    <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
-                    <Link href="/about" onClick={() => setIsOpen(false)}>About</Link>
-                    <Link href="/events" onClick={() => setIsOpen(false)}>Events</Link>
-                    <Link href="/members" onClick={() => setIsOpen(false)}>Members</Link>
-                    <Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
-                    <Link href="/donate" onClick={() => setIsOpen(false)} className="bg-amber-500 text-black text-center py-2 rounded">Donate Now</Link>
-                </div>
-            )}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="md:hidden bg-white text-black absolute top-full left-0 right-0 overflow-hidden shadow-lg border-t border-gray-100"
+                    >
+                        <div className="flex flex-col gap-4 p-6">
+                            <Link href="/" onClick={() => setIsOpen(false)} className="text-lg font-medium">Home</Link>
+                            <Link href="/about" onClick={() => setIsOpen(false)} className="text-lg font-medium">About</Link>
+                            <Link href="/events" onClick={() => setIsOpen(false)} className="text-lg font-medium">Events</Link>
+                            <Link href="/members" onClick={() => setIsOpen(false)} className="text-lg font-medium">Members</Link>
+                            <Link href="/contact" onClick={() => setIsOpen(false)} className="text-lg font-medium">Contact</Link>
+                            <Link href="/donate" onClick={() => setIsOpen(false)} className="bg-amber-500 text-black text-center py-3 rounded font-bold uppercase tracking-wider">Donate Now</Link>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 }

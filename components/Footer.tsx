@@ -1,6 +1,16 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export default function Footer() {
     return (
-        <footer className="bg-gray-900 text-white py-20">
+        <motion.footer
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-gray-900 text-white py-20"
+        >
             <div className="container grid grid-cols-1 md:grid-cols-4 gap-12 px-4 md:px-8">
                 <div>
                     <h4 className="font-bold text-2xl mb-6">The Oloja Foundation</h4>
@@ -40,6 +50,6 @@ export default function Footer() {
             <div className="container mt-20 pt-8 border-t border-gray-800 text-center text-gray-600 text-xs px-4 md:px-8">
                 &copy; {new Date().getFullYear()} The Oloja Foundation. All rights reserved.
             </div>
-        </footer >
+        </motion.footer >
     );
 }
