@@ -39,8 +39,8 @@ export default function EventsPage() {
     }, []);
 
     // Progress Calculation
-    const targetAmount = 600000;
-    const raisedAmount = 180000;
+    const targetAmount = 620000;
+    const raisedAmount = 210000;
     const percentage = Math.min((raisedAmount / targetAmount) * 100, 100);
 
     return (
@@ -123,7 +123,7 @@ export default function EventsPage() {
                                 <div className="mb-8">
                                     <h2 className="text-2xl font-bold mb-4 text-gray-900">About the Campaign</h2>
                                     <p className="text-gray-600 leading-relaxed mb-6">
-                                        Help us achieve our target amount of <span className="font-bold text-gray-900">₦600,000</span>. Your contributions will directly support our planned activities to bring relief and joy to the less privileged.
+                                        Help us achieve our target amount of <span className="font-bold text-gray-900">₦620,000</span>. Your contributions will directly support our planned activities to bring relief and joy to the less privileged.
                                     </p>
 
                                     <h4 className="font-bold text-gray-900 mb-3 uppercase text-sm tracking-wide">Planned Activities:</h4>
