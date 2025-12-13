@@ -152,9 +152,9 @@ export default function EventsPage() {
                                     <div className="border-t border-gray-100 pt-6">
                                         <h4 className="font-bold text-gray-900 mb-4 text-sm uppercase">Connect with Us</h4>
                                         <div className="space-y-3 text-sm text-gray-500">
-                                            <div className="flex items-center gap-3">
-                                                <Phone className="text-amber-500" size={16} /> 09076174344
-                                            </div>
+                                            <a href="https://chat.whatsapp.com/HdHp5Bvonic29juOtR6mDQ" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-amber-600 transition-colors">
+                                                <Phone className="text-amber-500" size={16} /> Join our Community
+                                            </a>
                                             <div className="flex items-center gap-3">
                                                 <Mail className="text-amber-500" size={16} /> theolojafoundation@gmail.com
                                             </div>
