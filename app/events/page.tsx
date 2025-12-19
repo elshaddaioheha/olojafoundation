@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Phone, Mail, Instagram, CheckCircle2 } from "lucide-react";
+import InstagramEmbed from "@/components/InstagramEmbed";
 
 export default function EventsPage() {
     // Countdown Timer Logic
@@ -89,37 +90,30 @@ export default function EventsPage() {
                         </div>
 
                         <div className="grid md:grid-cols-2">
-                            {/* Image Side */}
-                            <div className="relative h-[400px] md:h-auto">
-                                <Image
-                                    src="/images/impact_reach.jpg"
-                                    alt="Children Impact"
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8 md:p-12">
-                                    <div className="text-white">
-                                        <div className="font-bold text-xl mb-2">Fundraising Goal</div>
-                                        <div className="flex items-end gap-3 mb-4">
-                                            <span className="text-4xl font-bold text-amber-400">₦{raisedAmount.toLocaleString()}</span>
-                                            <span className="text-white/70 mb-2">/ ₦{targetAmount.toLocaleString()}</span>
-                                        </div>
-
-                                        {/* Progress Bar */}
-                                        <div className="w-full bg-white/20 h-4 rounded-full overflow-hidden backdrop-blur-sm">
-                                            <div
-                                                className="bg-amber-500 h-full rounded-full transition-all duration-1000 ease-out"
-                                                style={{ width: `${percentage}%` }}
-                                            ></div>
-                                        </div>
-                                        <div className="text-right text-xs font-bold mt-2 text-amber-400">{percentage.toFixed(1)}% Reached</div>
-                                    </div>
-                                </div>
+                            {/* Video Side */}
+                            <div className="relative min-h-[400px] flex items-center justify-center bg-gray-50 border-r border-gray-100">
+                                <InstagramEmbed url="https://www.instagram.com/p/DSTOyM3Ddop/" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
                             </div>
 
                             {/* Content Side */}
                             <div className="p-8 md:p-12 flex flex-col justify-center">
+                                {/* Fundraising Progress */}
+                                <div className="mb-10 bg-gray-900 rounded-2xl p-6 text-white shadow-lg">
+                                    <div className="font-bold text-sm uppercase tracking-widest text-amber-500 mb-2">Fundraising Goal</div>
+                                    <div className="flex items-end gap-3 mb-4">
+                                        <span className="text-3xl font-bold">₦{raisedAmount.toLocaleString()}</span>
+                                        <span className="text-white/50 text-sm mb-1">/ ₦{targetAmount.toLocaleString()}</span>
+                                    </div>
+                                    <div className="w-full bg-white/10 h-3 rounded-full overflow-hidden">
+                                        <div
+                                            className="bg-amber-500 h-full rounded-full transition-all duration-1000 ease-out"
+                                            style={{ width: `${percentage}%` }}
+                                        ></div>
+                                    </div>
+                                    <div className="text-right text-xs font-bold mt-2 text-amber-500">{percentage.toFixed(1)}% Reached</div>
+                                </div>
+
                                 <div className="mb-8">
                                     <h2 className="text-2xl font-bold mb-4 text-gray-900">About the Campaign</h2>
                                     <p className="text-gray-600 leading-relaxed mb-6">
