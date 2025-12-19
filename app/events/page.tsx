@@ -41,7 +41,7 @@ export default function EventsPage() {
 
     // Progress Calculation
     const targetAmount = 620000;
-    const raisedAmount = 504400;
+    const raisedAmount = 562800;
     const percentage = Math.min((raisedAmount / targetAmount) * 100, 100);
 
     return (
