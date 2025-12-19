@@ -54,3 +54,32 @@ export const getDonationStats = () => {
         donations: donations.slice(0, 50) // Return last 50 for display
     };
 };
+
+export interface NewsletterSubscriber {
+    email: string;
+    date: string;
+}
+
+export const getSubscribers = (): NewsletterSubscriber[] => {
+    const SUBSCRIBERS_PATH = path.join(process.cwd(), 'data', 'subscribers.json');
+    if (!fs.existsSync(SUBSCRIBERS_PATH)) {
+        return [];
+    }
+    try {
+        const data = fs.readFileSync(SUBSCRIBERS_PATH, 'utf-8');
+        return JSON.parse(data);
+    } catch (e) {
+        return [];
+    }
+};
+
+export const subscribeNewsletter = (email: string) => {
+    ensureDir();
+    const SUBSCRIBERS_PATH = path.join(process.cwd(), 'data', 'subscribers.json');
+    const subscribers = getSubscribers();
+    if (subscribers.some(s => s.email === email)) {
+        return;
+    }
+    subscribers.unshift({ email, date: new Date().toISOString() });
+    fs.writeFileSync(SUBSCRIBERS_PATH, JSON.stringify(subscribers, null, 2));
+};
