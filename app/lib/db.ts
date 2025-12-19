@@ -47,7 +47,7 @@ export const getDonationStats = () => {
     const donations = getDonations();
     const raised = donations.reduce((acc, curr) => acc + curr.amount, 0);
     // Base amount + raised
-    const totalRaised = 505500 + raised;
+    const totalRaised = 504400 + raised;
 
     return {
         totalRaised,
