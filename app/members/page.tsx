@@ -44,7 +44,7 @@ interface Donation {
 
 export default function MembersStats() {
     const [stats, setStats] = useState({
-        totalDonations: 340000,
+        totalDonations: 404500,
         recentDonations: [] as Donation[]
     });
 
