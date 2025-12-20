@@ -41,8 +41,8 @@ export default function EventsPage() {
 
     // Progress Calculation
     const targetAmount = 620000;
-    const raisedAmount = 562800;
-    const percentage = Math.min((raisedAmount / targetAmount) * 100, 100);
+    const raisedAmount = 623000;
+    const percentage = (raisedAmount / targetAmount) * 100;
 
     return (
         <main className="min-h-screen bg-gray-50">
