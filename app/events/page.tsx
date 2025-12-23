@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GoalAppreciation from "@/components/GoalAppreciation";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Phone, Mail, Instagram, CheckCircle2, Trophy, PartyPopper, Heart } from "lucide-react";
@@ -320,6 +321,9 @@ export default function EventsPage() {
                     </div>
                 </section>
             )}
+
+            {/* Appreciation from Founder */}
+            {percentage >= 100 && <GoalAppreciation />}
 
             <Footer />
         </main>
