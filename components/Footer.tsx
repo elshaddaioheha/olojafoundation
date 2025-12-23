@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Send, CheckCircle2, X } from "lucide-react";
+import { Heart, Send, CheckCircle2, X, MapPin, Mail } from "lucide-react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -75,11 +75,11 @@ export default function Footer() {
                     <h5 className="font-bold text-lg mb-6 text-amber-500">Contact Info</h5>
                     <ul className="space-y-4 text-sm text-gray-400">
                         <li className="flex gap-3">
-                            <span className="text-amber-500 shrink-0">📍</span>
+                            <MapPin size={18} className="text-amber-500 shrink-0" />
                             <span>Abuja & Jos, Nigeria</span>
                         </li>
                         <li className="flex gap-3">
-                            <span className="text-amber-500 shrink-0">✉️</span>
+                            <Mail size={18} className="text-amber-500 shrink-0" />
                             <a href="mailto:theolojafoundation@gmail.com" className="hover:text-white transition-colors">theolojafoundation@gmail.com</a>
                         </li>
                     </ul>

@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Heart, Sparkles, Trophy, Star } from "lucide-react";
+import { Heart, Sparkles, Trophy, Star, PartyPopper } from "lucide-react";
 
 export default function GoalAppreciation() {
     return (
@@ -108,8 +108,10 @@ export default function GoalAppreciation() {
                             We Did It Together!
                         </span>
                     </h2>
-                    <p className="text-xl md:text-2xl text-gray-600 font-medium">
-                        🎉 Goal Achieved · Hearts United · Dreams Realized 🎉
+                    <p className="text-xl md:text-2xl text-gray-600 font-medium flex items-center justify-center gap-3">
+                        <PartyPopper className="text-amber-500" size={24} />
+                        Goal Achieved · Hearts United · Dreams Realized
+                        <PartyPopper className="text-amber-500" size={24} />
                     </p>
                 </motion.div>
 
