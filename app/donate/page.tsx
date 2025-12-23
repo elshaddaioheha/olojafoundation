@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect, Suspense, useCallback } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -18,15 +18,7 @@ function DonateContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
 
-    useEffect(() => {
-        // Check for transaction reference from Paystack redirect
-        const reference = searchParams.get('reference');
-        if (reference) {
-            verifyTransaction(reference);
-        }
-    }, [searchParams]);
-
-    const verifyTransaction = async (reference: string) => {
+    const verifyTransaction = useCallback(async (reference: string) => {
         setCheckingPayment(true);
         try {
             const res = await fetch(`/api/paystack/verify?reference=${reference}`);
@@ -45,7 +37,15 @@ function DonateContent() {
         } finally {
             setCheckingPayment(false);
         }
-    };
+    }, [router]);
+
+    useEffect(() => {
+        // Check for transaction reference from Paystack redirect
+        const reference = searchParams.get('reference');
+        if (reference) {
+            verifyTransaction(reference);
+        }
+    }, [searchParams, verifyTransaction]);
 
     const resetForm = () => {
         setAmount(5000);
@@ -216,7 +216,7 @@ function DonateContent() {
                 </div>
             </div>
             <Footer />
-        </main >
+        </main>
     );
 }
 

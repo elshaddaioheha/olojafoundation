@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ export default function ContactPage() {
                 <div className="container mx-auto max-w-6xl">
                     <h1 className="text-4xl md:text-6xl font-bold mb-6">Contact Us</h1>
                     <p className="text-xl text-gray-300 max-w-2xl">
-                        We'd love to hear from you. Reach out to us for enquiries, partnerships, or support.
+                        We&apos;d love to hear from you. Reach out to us for enquiries, partnerships, or support.
                     </p>
                 </div>
             </section>

@@ -80,7 +80,7 @@ export default function AboutPage() {
                             <ShieldCheck className="text-amber-500" /> Our Promise
                         </h2>
                         <p className="text-lg text-gray-600 leading-relaxed">
-                            We promise to remain transparent, dedicated, and service-oriented in all our endeavors. Whether it's through providing a meal, funding a scholarship, or offering a grant, our goal is to reflect care and love to everyone we serve. We are committed to using every resource efficiently to ensure the maximum positive impact on our community.
+                            We promise to remain transparent, dedicated, and service-oriented in all our endeavors. Whether it&apos;s through providing a meal, funding a scholarship, or offering a grant, our goal is to reflect care and love to everyone we serve. We are committed to using every resource efficiently to ensure the maximum positive impact on our community.
                         </p>
                     </div>
 

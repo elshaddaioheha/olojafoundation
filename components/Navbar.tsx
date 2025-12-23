@@ -14,7 +14,7 @@ export default function Navbar({ forceOpaque = false }: { forceOpaque?: boolean 
             setScrolled(window.scrollY > 50);
         };
         // Check initially too
-        setScrolled(window.scrollY > 50);
+        handleScroll();
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);

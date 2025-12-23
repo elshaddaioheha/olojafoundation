@@ -208,7 +208,7 @@ export default function GoalAppreciation() {
                                     </span>
                                     <br />
                                     <br />
-                                    Together, we've proven that when hearts unite for a worthy
+                                    Together, we&apos;ve proven that when hearts unite for a worthy
                                     cause, nothing is impossible. May God bless you all
                                     abundantly, and may your kindness return to you tenfold.
                                 </motion.p>
@@ -228,7 +228,7 @@ export default function GoalAppreciation() {
                                         Founder, Oloja Foundation
                                     </p>
                                     <p className="text-gray-500 text-sm mt-2">
-                                        "A Home for Everyone"
+                                        &quot;A Home for Everyone&quot;
                                     </p>
                                 </motion.div>
                             </div>
