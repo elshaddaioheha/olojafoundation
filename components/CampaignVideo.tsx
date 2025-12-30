@@ -57,7 +57,7 @@ export default function CampaignVideo() {
                         >
                             <VideoPlaceholder
                                 thumbnail="/images/hero_bg.jpg"
-                                title="Watch Our 2024 Impact Story"
+                                title="Watch Our 2025 Impact Story"
                                 videoUrl="/videos/summary/summary0.mp4"
                                 description="A glimpse into how your support is transforming communities across the nation."
                                 label="Foundation Documentary"
