@@ -240,7 +240,7 @@ export default function EventsPage() {
                                     </p>
 
                                     <h4 className="font-bold text-gray-900 mb-3 uppercase text-sm tracking-wide">Planned Activities:</h4>
-                                    <ul className="space-y-3 font-medium">
+                                    <ul className="space-y-3 font-medium mb-6">
                                         <li className="flex items-center gap-3 text-gray-600 bg-gray-50 border border-gray-100 p-3 rounded-xl transition-colors hover:bg-amber-50/50">
                                             <CheckCircle2 className="text-amber-500 flex-shrink-0" size={20} /> Feed the Streets
                                         </li>
@@ -251,6 +251,9 @@ export default function EventsPage() {
                                             <CheckCircle2 className="text-amber-500 flex-shrink-0" size={20} /> Hospital Visit
                                         </li>
                                     </ul>
+                                    <Link href="/activities" className="inline-flex items-center gap-2 text-amber-600 font-bold hover:underline">
+                                        View details of past activities →
+                                    </Link>
                                 </div>
 
                                 <div className="space-y-6">
@@ -314,8 +317,8 @@ export default function EventsPage() {
                             <p className="text-xl text-gray-400 mb-10 leading-relaxed">
                                 Our goal was ambitious, but your generosity was greater. <span className="text-white font-bold">₦623,000</span> raised is more than just a number—it&apos;s a testament to our community&apos;s heart.
                             </p>
-                            <Link href="/members" className="inline-flex items-center gap-2 text-amber-500 font-bold hover:gap-4 transition-all">
-                                See Donor Analytics <CheckCircle2 size={16} />
+                            <Link href="/activities" className="inline-flex items-center gap-2 text-amber-500 font-bold hover:gap-4 transition-all">
+                                See Our Activities <CheckCircle2 size={16} />
                             </Link>
                         </motion.div>
                     </div>

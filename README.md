@@ -6,7 +6,7 @@ This is the official website for The Oloja Foundation, built with Next.js, Tailw
 
 - **Home Page**: Features a hero section, mission/vision stats, founder bio, and core values.
 - **Donate Page**: Integrated with Paystack for accepting donations.
-- **Member Statistics**: A dashboard for members to view impact statistics (Volunteers, Donations, etc.).
+- **Impact Activities**: A gallery and timeline of documented outreaches and foundation events.
 - **Responsive Design**: optimized for mobile and desktop.
 
 ## Getting Started

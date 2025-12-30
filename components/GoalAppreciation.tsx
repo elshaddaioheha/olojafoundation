@@ -100,19 +100,30 @@ export default function GoalAppreciation() {
                     initial={{ y: 50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
+                    transition={{ delay: 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     className="text-center mb-12"
                 >
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-                        <span className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        <motion.span
+                            initial={{ backgroundPosition: "0% 50%" }}
+                            animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+                            className="bg-gradient-to-r from-emerald-600 via-blue-600 to-purple-600 bg-clip-text text-transparent bg-[length:200%_auto]"
+                        >
                             We Did It Together!
-                        </span>
+                        </motion.span>
                     </h2>
-                    <p className="text-xl md:text-2xl text-gray-600 font-medium flex items-center justify-center gap-3">
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-xl md:text-2xl text-gray-600 font-medium flex items-center justify-center gap-3"
+                    >
                         <PartyPopper className="text-amber-500" size={24} />
                         Goal Achieved · Hearts United · Dreams Realized
                         <PartyPopper className="text-amber-500" size={24} />
-                    </p>
+                    </motion.p>
                 </motion.div>
 
                 {/* Main Content Card */}
@@ -250,7 +261,7 @@ export default function GoalAppreciation() {
                     className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"
                 >
                     {[
-                        { icon: Heart, label: "Lives Touched", value: "100+", color: "red" },
+                        { icon: Heart, label: "Persons reached", value: "90+", color: "red" },
                         { icon: Trophy, label: "Goal Achieved", value: "100%", color: "yellow" },
                         { icon: Sparkles, label: "Dreams Fulfilled", value: "Countless", color: "emerald" },
                     ].map((stat, index) => (

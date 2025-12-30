@@ -7,27 +7,27 @@ import { ChevronLeft, ChevronRight, Camera } from "lucide-react";
 const media = [
     {
         type: "image",
-        url: "/images/campaign/img1.jpg",
-        title: "Kubwa General Hospital Visit",
-        description: "Our dedicated team arriving at Kubwa General Hospital to provide support and medical relief."
+        url: "/images/activities/ark-of-refuge/image4.jpg",
+        title: "Ark of Refuge Orphanage Visit",
+        description: "Our first successful outreach, bringing hope and supplies to the children at Ark of Refuge."
+    },
+    {
+        type: "image",
+        url: "/images/activities/jks-orphanage/image1.jpg",
+        title: "JKS Orphanage for Special Needs",
+        description: "Documenting our visit to JKS, where we provided essential supplies and shared love with some truly special children."
     },
     {
         type: "image",
         url: "/images/campaign/img2.jpg",
-        title: "Street Outreach",
-        description: "Providing essential supplies and food to individuals in our local communities."
+        title: "Operation Feed the Streets",
+        description: "A large-scale mission dedicated to providing hot meals and essential food packs to our local communities."
     },
     {
         type: "image",
         url: "/images/campaign/img3.jpg",
         title: "JKSI Home for Special Needs",
         description: "Sharing love and much-needed supplies with the wonderful children at JKSI Home."
-    },
-    {
-        type: "image",
-        url: "/images/campaign/img4.jpg",
-        title: "Moments of Joy",
-        description: "The heartwarming smiles that drive our mission forward every single day."
     },
     {
         type: "image",
@@ -104,10 +104,10 @@ export default function CampaignGallery() {
                         </motion.h2>
                     </div>
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                        transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         className="text-gray-500 max-w-md text-lg italic"
                     >
                         "Every picture tells a story of hope, every video captures a moment of change. See the impact of your support in action."

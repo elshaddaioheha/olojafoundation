@@ -66,7 +66,7 @@ export default function Footer() {
                         <li><Link href="/about" className="hover:text-white transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" /> About Us</Link></li>
                         <li><Link href="/about#mission" className="hover:text-white transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" /> Our Mission</Link></li>
                         <li><Link href="/events" className="hover:text-white transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" /> Events</Link></li>
-                        <li><Link href="/members" className="hover:text-white transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" /> Member Stats</Link></li>
+                        <li><Link href="/activities" className="hover:text-white transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" /> Our Activities</Link></li>
                         <li><Link href="/contact" className="hover:text-white transition-colors flex items-center gap-2 group"><span className="w-1 h-1 bg-amber-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" /> Contact</Link></li>
                     </ul>
                 </div>

@@ -44,7 +44,7 @@ export default function Navbar({ forceOpaque = false }: { forceOpaque?: boolean 
                     <Link href="/" className="hover:text-amber-500 transition-colors font-medium">Home</Link>
                     <Link href="/about" className="hover:text-amber-500 transition-colors font-medium">About</Link>
                     <Link href="/events" className="hover:text-amber-500 transition-colors font-medium">Events</Link>
-                    <Link href="/members" className="hover:text-amber-500 transition-colors font-medium">Members</Link>
+                    <Link href="/activities" className="hover:text-amber-500 transition-colors font-medium">Activities</Link>
                     <Link href="/contact" className="hover:text-amber-500 transition-colors font-medium">Contact</Link>
                     <Link href="/donate" className="btn btn-primary px-6 py-2 rounded-full">DONATE NOW</Link>
                 </div>
@@ -59,20 +59,77 @@ export default function Navbar({ forceOpaque = false }: { forceOpaque?: boolean 
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="md:hidden bg-white text-black absolute top-full left-0 right-0 overflow-hidden shadow-lg border-t border-gray-100"
+                        initial={{ opacity: 0, height: 0, y: -20 }}
+                        animate={{
+                            opacity: 1,
+                            height: "auto",
+                            y: 0,
+                            transition: {
+                                duration: 0.5,
+                                ease: [0.16, 1, 0.3, 1]
+                            }
+                        }}
+                        exit={{
+                            opacity: 0,
+                            height: 0,
+                            y: -20,
+                            transition: {
+                                duration: 0.3,
+                                ease: [0.16, 1, 0.3, 1]
+                            }
+                        }}
+                        className="md:hidden bg-white text-black absolute top-full left-0 right-0 overflow-hidden shadow-xl border-t border-gray-100"
                     >
-                        <div className="flex flex-col gap-4 p-6">
-                            <Link href="/" onClick={() => setIsOpen(false)} className="text-lg font-medium">Home</Link>
-                            <Link href="/about" onClick={() => setIsOpen(false)} className="text-lg font-medium">About</Link>
-                            <Link href="/events" onClick={() => setIsOpen(false)} className="text-lg font-medium">Events</Link>
-                            <Link href="/members" onClick={() => setIsOpen(false)} className="text-lg font-medium">Members</Link>
-                            <Link href="/contact" onClick={() => setIsOpen(false)} className="text-lg font-medium">Contact</Link>
-                            <Link href="/donate" onClick={() => setIsOpen(false)} className="bg-amber-500 text-black text-center py-3 rounded font-bold uppercase tracking-wider">Donate Now</Link>
-                        </div>
+                        <motion.div
+                            initial="hidden"
+                            animate="visible"
+                            variants={{
+                                hidden: { opacity: 0 },
+                                visible: {
+                                    opacity: 1,
+                                    transition: { staggerChildren: 0.05, delayChildren: 0.1 }
+                                }
+                            }}
+                            className="flex flex-col gap-4 p-8"
+                        >
+                            {[
+                                { name: "Home", href: "/" },
+                                { name: "About", href: "/about" },
+                                { name: "Events", href: "/events" },
+                                { name: "Activities", href: "/activities" },
+                                { name: "Contact", href: "/contact" },
+                            ].map((item) => (
+                                <motion.div
+                                    key={item.name}
+                                    variants={{
+                                        hidden: { opacity: 0, x: -10 },
+                                        visible: { opacity: 1, x: 0 }
+                                    }}
+                                >
+                                    <Link
+                                        href={item.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className="text-xl font-bold hover:text-amber-600 transition-colors"
+                                    >
+                                        {item.name}
+                                    </Link>
+                                </motion.div>
+                            ))}
+                            <motion.div
+                                variants={{
+                                    hidden: { opacity: 0, scale: 0.95 },
+                                    visible: { opacity: 1, scale: 1 }
+                                }}
+                            >
+                                <Link
+                                    href="/donate"
+                                    onClick={() => setIsOpen(false)}
+                                    className="bg-amber-500 text-black text-center py-4 rounded-none font-bold uppercase tracking-widest block mt-4 shadow-lg active:scale-95 transition-transform"
+                                >
+                                    Donate Now
+                                </Link>
+                            </motion.div>
+                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>

@@ -11,9 +11,9 @@ export default function Hero() {
             <div className="absolute inset-0 z-0">
                 <Image
                     src="/images/hero_bg.jpg"
-                    alt="Children smiling"
+                    alt="Oloja Foundation team and children"
                     fill
-                    className="object-cover"
+                    className="object-cover object-[center_60%]"
                     priority
                     sizes="100vw"
                 />
@@ -21,38 +21,76 @@ export default function Hero() {
             </div>
 
             {/* Content */}
-            <div className="container relative z-10 text-center flex flex-col items-center">
+            <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                        opacity: 1,
+                        transition: {
+                            staggerChildren: 0.15,
+                            delayChildren: 0.2
+                        }
+                    }
+                }}
+                className="container relative z-10 text-center flex flex-col items-center"
+            >
                 <motion.span
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: {
+                            opacity: 1,
+                            y: 0,
+                            transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+                        }
+                    }}
                     className="text-amber-400 font-bold tracking-widest text-sm md:text-base mb-4 uppercase"
                 >
                     We're a National NGO (Non-Governmental Organization)
                 </motion.span>
 
                 <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+                    variants={{
+                        hidden: { opacity: 0, y: 30 },
+                        visible: {
+                            opacity: 1,
+                            y: 0,
+                            transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+                        }
+                    }}
                     className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
                 >
                     Change Everything
                 </motion.h1>
 
                 <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                    variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: {
+                            opacity: 1,
+                            y: 0,
+                            transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+                        }
+                    }}
                     className="max-w-2xl text-lg md:text-xl text-gray-200 mb-10"
                 >
                     You have the opportunity to impact the lives of individuals and families in need.
                 </motion.p>
 
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+                    variants={{
+                        hidden: { opacity: 0, scale: 0.9 },
+                        visible: {
+                            opacity: 1,
+                            scale: 1,
+                            transition: {
+                                type: "spring",
+                                stiffness: 200,
+                                damping: 20
+                            }
+                        }
+                    }}
                 >
                     <Link
                         href="/donate"
@@ -61,7 +99,7 @@ export default function Hero() {
                         Get Involved
                     </Link>
                 </motion.div>
-            </div>
+            </motion.div>
         </section >
     );
 }

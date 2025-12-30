@@ -1,9 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import InstagramEmbed from "./InstagramEmbed";
 import Link from "next/link";
 import { PlayCircle } from "lucide-react";
+import VideoPlaceholder from "./VideoPlaceholder";
 
 export default function CampaignVideo() {
     return (
@@ -13,34 +13,34 @@ export default function CampaignVideo() {
                     {/* Text Content */}
                     <div className="lg:w-1/2 text-center lg:text-left">
                         <motion.div
-                            initial={{ opacity: 0, x: -20 }}
+                            initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             viewport={{ once: true }}
                         >
-                            <span className="inline-block bg-amber-100 text-amber-600 font-bold uppercase tracking-widest text-xs px-4 py-2 rounded-full mb-6">
+                            <span className="inline-block bg-amber-100 text-amber-600 font-bold uppercase tracking-widest text-xs px-5 py-2.5 rounded-none mb-6">
                                 Watch Our Story
                             </span>
                             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                                See the Impact of <br />
-                                <span className="text-amber-500">Our Last Campaign</span>
+                                Our Journey of <br />
+                                <span className="text-amber-500">Love and Impact</span>
                             </h2>
-                            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-                                Experience the moments that define our mission. From the streets to the orphanages, see how your support changes lives every single day.
+                            <p className="text-xl text-gray-600 mb-10 leading-relaxed max-w-lg">
+                                Watch our full summary documentary to see how we've been transforming lives. From providing medical aid to feeding the streets, every moment is a step towards a better future.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                                 <Link
                                     href="/donate"
-                                    className="btn bg-amber-500 hover:bg-amber-600 text-black font-bold px-10 py-4 rounded-xl shadow-lg transition-all active:scale-95 text-center"
+                                    className="btn bg-amber-500 hover:bg-amber-600 text-black font-bold px-10 py-4 rounded-none shadow-xl transition-all active:scale-95 text-center uppercase tracking-widest text-sm"
                                 >
                                     Support Our Next Event
                                 </Link>
                                 <Link
-                                    href="/events"
-                                    className="btn border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-10 py-4 rounded-xl transition-all text-center"
+                                    href="/activities"
+                                    className="btn border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-10 py-4 rounded-none transition-all text-center uppercase tracking-widest text-sm"
                                 >
-                                    View Upcoming Events
+                                    View All Activities
                                 </Link>
                             </div>
                         </motion.div>
@@ -55,11 +55,13 @@ export default function CampaignVideo() {
                             viewport={{ once: true }}
                             className="relative z-10"
                         >
-                            <InstagramEmbed url="https://www.instagram.com/p/DSTOyM3Ddop/" />
-
-                            {/* Decorative Elements */}
-                            <div className="absolute -top-6 -right-6 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl -z-10"></div>
-                            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-amber-500/5 rounded-full blur-3xl -z-10"></div>
+                            <VideoPlaceholder
+                                thumbnail="/images/hero_bg.jpg"
+                                title="Watch Our 2024 Impact Story"
+                                videoUrl="/videos/summary/summary0.mp4"
+                                description="A glimpse into how your support is transforming communities across the nation."
+                                label="Foundation Documentary"
+                            />
                         </motion.div>
 
                         {/* Play Indicator Icon (Visual only) */}
